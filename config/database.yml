@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: 5 
+  username: root
+  password: Sergio@12
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: tabbs_sw_development
+
+test:
+  <<: *default
+  database: tabbs_sw_test
+
+production:
+  <<: *default
+  database: tabbs_sw_production
+  username: tabbs_sw
+  password: <%= ENV['TABBS_SW_DATABASE_PASSWORD'] %>
