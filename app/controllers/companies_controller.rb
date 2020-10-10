@@ -20,7 +20,7 @@ class CompaniesController < ApplicationController
       @company = Company.new(company_params)
       if @company.save
         flash[:notice] = 'Company was successfully created.'
-        redirect_to(@company) 
+        redirect_to new_user_registration_path
       else
         render action: "new"
       end
@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
 
     def update
       if @company.update(company_params)
-        redirect_to(@company), notice: 'Company was successfully updated.'
+        redirect_to @company, notice: 'Company was successfully updated.'
       else
         render :edit
       end
