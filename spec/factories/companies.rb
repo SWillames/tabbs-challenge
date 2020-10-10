@@ -1,9 +1,11 @@
+require 'ffaker'
+
 FactoryBot.define do
   factory :company do
-    name { "MyString" }
-    corporate_name { "MyString" }
-    cnpj { "MyString" }
-    address { "MyString" }
-    domain { "MyString" }
+    name { FFaker::Company.name }
+    corporate_name { name + " " + FFaker::Company.suffix }
+    cnpj { FFaker::IndetificationBR.cnpj }
+    address { FFaker::AddressBR.full_address }
+    domain { FFaker::InternetSE.domain_name }
   end
 end
