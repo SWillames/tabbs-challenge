@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates_presence_of :name, :email, :password
   validates_uniqueness_of :email
   belongs_to :company
+  has_many :comments
+  has_many :posts
 end
