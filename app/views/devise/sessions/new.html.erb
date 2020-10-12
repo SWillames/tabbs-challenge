@@ -6,7 +6,7 @@
             <div class="card-img-left d-none d-md-flex">
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">Log in </h5>
+              <h5 class="card-title text-center text-light bg-dark">Log In</h5>
 
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 
@@ -28,7 +28,7 @@
                 <% end -%>
 
                  <div class="actions">
-                    <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
+                    <%= f.submit "Sign In", class: "btn btn-lg btn-primary btn-block text-uppercase" %>
                   </div>
               <% end %>
 
