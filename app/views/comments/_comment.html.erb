@@ -1,0 +1,9 @@
+<h4> <%= comment.body%> </h4>
+<div> <h6>Autor: <%= comment.user.name%></h6></div>
+<div>
+  <%= render partial: "comments/form", locals: { commentable: @post , parent_id: comment.id} %>
+</div>
+
+<ol>
+  <%= render comment.comments %>
+</ol>

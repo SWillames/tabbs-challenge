@@ -1,0 +1,7 @@
+<%= form_with model: [commentable, Comment.new], local: true do |form| %>
+    <%= form.text_area :body, class: "form-control", placeholder: "Add Comment" %>
+    <div>
+    <%= form.hidden_field :parent_id, value: local_assigns[:parent_id] %>
+    <%= form.submit 'Enviar', class:'btn btn-outline-secondary' %>
+  </div>
+<% end %>
