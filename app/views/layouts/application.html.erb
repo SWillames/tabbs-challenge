@@ -6,12 +6,58 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <%= link_to root_path, class: "navbar-brand" do %>
+              <%= image_tag "logo"%>
+            <% end %>
+          </li> 
+        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? == false %>
+              <li class="nav-item active">
+                <%= link_to 'Sign_in', new_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'Signup', new_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'New company', new_company_path, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item active">
+                <h5 class="nav-item active"> Olá, <%= current_user.name %> </h5>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'New Post', new_post_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'Edit account', edit_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% end %>    
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <p class="alert text-center"><%= alert %></p>
+    <p class="notice text-center"><%= notice %></p>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
