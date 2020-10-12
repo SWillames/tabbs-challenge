@@ -1,6 +1,8 @@
-<h4> <%= comment.body%> </h4>
-<div> <h6>Autor: <%= comment.user.name%></h6></div>
-<div>
+<div class="form-group col-md-6">
+  <h4> <%= comment.body%> </h4>
+  <h6>Autor: <%= comment.user.name%></h6>
+</div>
+<div class="form-group">
   <%= render partial: "comments/form", locals: { commentable: @post , parent_id: comment.id} %>
 </div>
 

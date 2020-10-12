@@ -1,7 +1,17 @@
 <%= form_with model: [commentable, Comment.new], local: true do |form| %>
-    <%= form.text_area :body, class: "form-control", placeholder: "Add Comment" %>
-    <div>
-    <%= form.hidden_field :parent_id, value: local_assigns[:parent_id] %>
-    <%= form.submit 'Enviar', class:'btn btn-outline-secondary' %>
-  </div>
+  <% commentable.errors.full_messages.each do |message|%>
+    <ul>
+       <li><%= message%></li>
+    </ul>
+  <% end %>
+    <%= form.text_area :body, class: "form-group form-control", placeholder: "Add Comment" %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.hidden_field :parent_id, value: local_assigns[:parent_id] %>
+      </div>
+      <div class="form-group col-md-4"></div>
+      <div class="form-group col-md-1">
+        <%= form.submit 'Enviar', class:'btn btn-outline-secondary' %>
+      </div>
+    </div>
 <% end %>
