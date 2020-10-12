@@ -1,0 +1,22 @@
+<div class="container">
+    <%= link_to posts_path, class: "button is-button is-link" do %>
+        <i class="fa fa-arrow-left"></i> VOLTAR
+    <% end %>
+    <div class="columns">
+        <div class="column">
+            <p class="title">Olja</p>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-three-quarters"><h4><%= @post.body %></h4>
+        <div class="column"><h6>Autor: <%= @post.user.name %></h6>
+    </div>
+        <h3>Comentários</h3>
+
+    <div class=>
+        <%= render partial: "comments/form", locals: { commentable: @post } %>
+    </div>
+      <div class=>  
+        <%= render @post.comments.where(parent_id: nil) %>
+      </div>  
+</div>

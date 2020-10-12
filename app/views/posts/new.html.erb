@@ -1,0 +1,21 @@
+<% @post.errors.full_messages.each do |message|%>
+    <ul>
+        <li><%= message%></li>
+    </ul>
+<%end%>
+
+<%= form_with model: @post, local: true do |form|%>
+
+    <div>
+        <%= form.label :title%>
+        <%= form.text_area :title%>
+    </div>
+    
+    <div>
+        <%= form.label :body%>
+        <%= form.text_area :body%>
+    </div>
+    
+    <%= form.submit 'Post', class:"btn btn-dark"%>
+
+<% end %>
