@@ -37,13 +37,16 @@
               </li>
             <% else %>
               <li class="nav-item active">
-                <h5 class="nav-item active"> Olá, <%= current_user.name %> </h5>
+                <h5 class="nav-item active nav-link"> Olá, <%= current_user.name %> </h5>
               </li>
               <li class="nav-item active">
                 <%= link_to 'New Post', new_post_path, class: "nav-link" %>
               </li>
               <li class="nav-item active">
                 <%= link_to 'Edit account', edit_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to 'Admin_Area', rails_admin_path, class: "nav-link" %>
               </li>
               <li class="nav-item active">
                 <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
@@ -53,8 +56,8 @@
         </div>
       </div>
     </nav>
-    <p class="alert text-center"><%= alert %></p>
-    <p class="notice text-center"><%= notice %></p>
+    <p class="text-center alert-danger"><%= alert %></p>
+    <p class="notice text-center alert-success"><%= notice %></p>
     <div class="container">
       <%= yield %>
     </div>
