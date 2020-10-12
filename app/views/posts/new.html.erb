@@ -1,21 +1,22 @@
 <% @post.errors.full_messages.each do |message|%>
     <ul>
-        <li><%= message%></li>
+        <ol class="text-center alert-danger"><%= message%></ol>
     </ul>
 <%end%>
 
 <%= form_with model: @post, local: true do |form|%>
+<h5 class="card-title text-center text-light bg-dark">New Post</h5>
 
-    <div>
+    <div class="form-label-group">
         <%= form.label :title%>
-        <%= form.text_area :title%>
+        <%= form.text_field :title, class: "form-control"%>
     </div>
     
-    <div>
+    <div class="form-label-group">
         <%= form.label :body%>
-        <%= form.text_area :body%>
+        <%= form.text_area :body, class: "form-control"%>
     </div>
     
-    <%= form.submit 'Post', class:"btn btn-dark"%>
+    <%= form.submit 'Post', class:"btn btn-primary"%>
 
 <% end %>

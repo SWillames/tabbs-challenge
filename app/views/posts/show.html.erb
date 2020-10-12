@@ -4,19 +4,20 @@
     <% end %>
     <div class="columns">
         <div class="column">
-            <p class="title">Olja</p>
+            <p class="title text-center text-light bg-dark"><%= @post.title%></p>
         </div>
     </div>
     <div class="columns">
         <div class="column is-three-quarters"><h4><%= @post.body %></h4>
         <div class="column"><h6>Autor: <%= @post.user.name %></h6>
-    </div>
-        <h3>Comentários</h3>
-
-    <div class=>
+    </div></br>
+    <p><div>
+      <h5 class="card-title text-center">Comentários</h5>
+    </div></p>
+    
         <%= render partial: "comments/form", locals: { commentable: @post } %>
-    </div>
-      <div class=>  
+    
+        
         <%= render @post.comments.where(parent_id: nil) %>
-      </div>  
+        
 </div>
