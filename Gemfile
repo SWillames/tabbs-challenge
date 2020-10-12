@@ -16,6 +16,7 @@ gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'material_icons'
 gem 'pagy', '~> 3.5'
+gem 'tty-spinner'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
