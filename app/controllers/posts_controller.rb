@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_post, only: [:show, :edit, :update, :destroy]
   
     def index
-      @posts = Post.all
+      @pagy, @posts = pagy(Post.all)
     end
   
     def show
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
   
     def create
       @post = Post.new(post_params)
+      @post.user = current_user
         if @post.save
            redirect_to @post, notice: 'Post was successfully created.'
         else
@@ -43,6 +45,8 @@ class PostsController < ApplicationController
       end
   
       def post_params
-        params.require(:post).permit(:title, :author, :featured_image, :content)
+        params.require(:post)
+            .permit(:body, :user_id)
+            
       end
 end

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    
+    before_action :authenticate_user!
     def create
         find_commentable()
         @comment = @commentable.comments.build(comment_params)
