@@ -1,25 +1,35 @@
-<%= form_with model: @company, local: true do |f|%>
-  <div>
-      <%= f.label :name%>
-      <%= f.text_field :name%>
-  </div>
-  <div>
-      <%= f.label :corporate_name %>
-      <%= f.text_field :corporate_name %>
-  </div>
-  <div>
-      <%= f.label :cnpj %>
-      <%= f.text_field :cnpj %>
-  </div>
-  <div>
-      <%= f.label :address %>
-      <%= f.text_field :address %>
-  </div>
-  <div>
-      <%= f.label :domain%>
-      <%= f.text_field :domain%>  
-  </div>
-  <div>
-      <%= f.submit %>
-  </div>
-<% end %>
+<div class="container">
+  <h3>New Company</h3>
+  <%= form_with model: @company, local: true do |f|%>
+    <div class="field">
+        <%= f.label :name%>
+        <%= f.text_field :name%>
+    </div>
+
+    <div class=field>
+        <%= f.label :corporate_name %>
+        <%= f.text_field :corporate_name %>
+    </div>
+
+    <div class=field>
+        <%= f.label :cnpj %>
+        <%= f.text_field :cnpj %>
+    </div>
+
+    <div class=field>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+
+    <div class=field>
+        <%= f.label :domain%>
+        <%= f.text_field :domain%>  
+    </div>
+    
+    <div class="actions">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Create Company
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  <% end %>
+</div>
